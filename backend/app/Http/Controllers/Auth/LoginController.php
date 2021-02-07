@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +16,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
         if(!Auth::attempt($request->only(['email', 'password']))){
-            throw AuthorizationException::class;
+            throw new AuthenticationException();
         }
     }
 }
