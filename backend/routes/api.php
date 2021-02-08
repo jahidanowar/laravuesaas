@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Resources\UserResource;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +20,6 @@ Route::post('/login', LoginController::class);
 
 //Authenticated Request
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/user', function (Request $request) {
-        return new UserResource($request->user());
-    });
+    Route::get('/user', UserController::class);
     Route::post('/logout', LogoutController::class);
 });
