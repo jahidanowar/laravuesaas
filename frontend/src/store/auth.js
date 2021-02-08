@@ -35,7 +35,7 @@ export default {
         .get("/api/user")
         .then((response) => {
           commit("SET_AUTH", true);
-          commit("SET_USER", response.data);
+          commit("SET_USER", response.data.data);
         })
         .catch(() => {
           commit("SET_AUTH", false);
