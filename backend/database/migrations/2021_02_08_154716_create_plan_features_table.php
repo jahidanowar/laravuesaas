@@ -18,7 +18,6 @@ class CreatePlanFeaturesTable extends Migration
             $table->foreignId('plan_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
             $table->bigInteger('limit')->nullable();
-            $table->timestamps();
         });
     }
 
