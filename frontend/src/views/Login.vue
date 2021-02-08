@@ -73,8 +73,9 @@ export default {
     ...mapGetters({ user: "auth/user", authenticated: "auth/isAuthenticated" }),
   },
   methods: {
-    login() {
-      this.$store.dispatch("auth/login", this.form);
+    async login() {
+      await this.$store.dispatch("auth/login", this.form);
+      this.$router.replace({name:'Home'});
     },
   },
 };

@@ -42,5 +42,11 @@ export default {
           commit("SET_USER", null);
         });
     },
+    //Logs out the user
+    async logout({commit}){
+      await axios.post("/api/logout");
+      commit("SET_AUTH", false);
+      commit("SET_USER", null);
+    }
   },
 };
