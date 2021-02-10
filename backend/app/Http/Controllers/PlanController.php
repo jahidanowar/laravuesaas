@@ -10,6 +10,6 @@ class PlanController extends Controller
 {
     public function __invoke()
     {
-        return PlanResource::collection(Plan::all());
+        return PlanResource::collection(Plan::where('free', false)->get());
     }
 }

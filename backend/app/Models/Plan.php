@@ -19,6 +19,6 @@ class Plan extends Model
     ];
 
     public function features(){
-        return $this->hasMany(PlanFeature::class);
+        return $this->hasMany(PlanFeature::class)->orderBy('title');
     }
 }
